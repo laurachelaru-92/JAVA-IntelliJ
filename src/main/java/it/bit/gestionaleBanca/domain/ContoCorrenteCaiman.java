@@ -15,8 +15,32 @@ public class ContoCorrenteCaiman extends ContoCorrente{
     }
 
     @Override
+    public double preleva(double amount) {
+        this.saldo -= 0.99*amount;
+        return this.saldo;
+    }
+
+    @Override
     public double deposita(double amount){
         this.saldo = 1.1*amount;
         return saldo;
+    }
+
+    @Override
+    public ContoCorrenteCaiman generaContoSecondario() {
+        ContoCorrenteCaiman nuovoContoCaiman = new ContoCorrenteCaiman("abcd", 1000);
+        double terzoSaldo = this.saldo/3;
+        // this.saldo = this.saldo - terzoSaldo;
+        setSaldo(this.getSaldo() - terzoSaldo);
+        nuovoContoCaiman.setSaldo(terzoSaldo);
+
+        /*ContoCorrente risultato = null;
+        //risultato = (ContoCorrente) nuovoContoCaiman;
+        risultato = nuovoContoCaiman;
+
+        return risultato;*/
+        return  nuovoContoCaiman;
+
+        // return (ContoCorrente) nuovoContoCaiman;
     }
 }

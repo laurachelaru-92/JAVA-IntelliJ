@@ -7,7 +7,7 @@ package it.bit.gestionaleBanca.domain;
 
 // La classe è la descrizione di un nuovo tipo di dato
 // Ci può essere solo una classe pubblica per file .java (per trovare facilmente la classe)
-public class ContoCorrente {
+public abstract class ContoCorrente {
 
     // HEAP è dove vengono allocati gli oggetti. Non c'è una logica, l'oggetto viene messo dove c'è spazio, perché non si sa qual è l'oggetto più "importante" o che userai prima
     // Quando il garbage collector elimina oggetti, lo fa come fossero un mucchio di vestiti e ne prendessi alcuni dal mucchio
@@ -19,6 +19,7 @@ public class ContoCorrente {
     public ContoCorrente(){
 
     }
+    public abstract double preleva(double amount);
 
     public double deposita(double amount){
         this.saldo += amount;
@@ -30,7 +31,7 @@ public class ContoCorrente {
     // - quello che è pubblico non si può più cambiare senza invalidare tuuuutto il codice
     protected double saldo = 100;
 
-
+    public abstract ContoCorrente generaContoSecondario();
 
     public double getSaldo() {
         return this.saldo;
