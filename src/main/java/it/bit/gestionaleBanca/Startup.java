@@ -4,7 +4,7 @@ package it.bit.gestionaleBanca;
 // Non si può importare la classe e basta, ma si deve importare il package
 // Non si possono importare classi dalla source directory (cartella java)
 import it.bit.gestionaleBanca.domain.ContoCorrente;
-import package1.MiaClasse;
+import it.bit.gestionaleBanca.domain.ContoCorrenteCaiman;
 
 public class Startup {
 
@@ -12,8 +12,17 @@ public class Startup {
 
         ContoCorrente c = new ContoCorrente();
         c.setSaldo(1000);
+        c.deposita(1000);
         System.out.println(c.getSaldo());
         
-        ContoCorrenteCaiman cn = new ContoCorrenteCaiman();
+        ContoCorrenteCaiman cn = new ContoCorrenteCaiman("", 1.2);
+        cn.deposita(1000);
+
+        ContoCorrente x = new ContoCorrenteCaiman("", 1.2);
+        x.deposita(1000);
     }
 }
+
+//ereditarieta  - is a
+
+//composizione - has a

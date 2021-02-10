@@ -13,15 +13,24 @@ public class ContoCorrente {
     // Quando il garbage collector elimina oggetti, lo fa come fossero un mucchio di vestiti e ne prendessi alcuni dal mucchio
     // Non si sa quando un oggetto non servirà più
     // Viene eliminato un oggetto dall'Heap quando nel programma non c'è più una reference che richiama quell'oggetto
-    public ContoCorrente() {
+    public ContoCorrente(double saldo) {
+        this.saldo = saldo;
+    }
+    public ContoCorrente(){
 
     }
 
+    public double deposita(double amount){
+        this.saldo += amount;
+        return saldo;
+    }
     // È preferibile creare un metodo setSaldo o getSaldo perché:
     // - è possibile dover fare controlli o log o conversioni ecc
     // - in futuro la variabile saldo potrebbe dover essere privata
     // - quello che è pubblico non si può più cambiare senza invalidare tuuuutto il codice
     protected double saldo = 100;
+
+
 
     public double getSaldo() {
         return this.saldo;
