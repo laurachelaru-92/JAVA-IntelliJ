@@ -1,7 +1,7 @@
 package it.bit.gestionaleBanca.domain;
 
 public class ContoCorrenteCaimanSenzaEreditarieta {
-    private ContoCorrente c = new ContoCorrente();
+    private ContoCorrente c = new ContoGold();
 
     public double getSaldo(){
         return this.c.getSaldo();
